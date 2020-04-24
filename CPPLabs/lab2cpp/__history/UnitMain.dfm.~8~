@@ -1,0 +1,234 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'TODO'
+  ClientHeight = 492
+  ClientWidth = 1081
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 749
+    Top = 8
+    Width = 147
+    Height = 24
+    Caption = #1042#1099#1073#1086#1088' '#1074#1072#1082#1072#1085#1089#1080#1080
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object CandidateChoiceLabel: TLabel
+    Left = 560
+    Top = 171
+    Width = 159
+    Height = 24
+    Caption = #1042#1099#1073#1086#1088' '#1082#1072#1085#1076#1080#1076#1072#1090#1072
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object FNLabel: TLabel
+    Left = 873
+    Top = 123
+    Width = 23
+    Height = 13
+    Caption = #1060#1048#1054
+  end
+  object SpecLabel: TLabel
+    Left = 818
+    Top = 209
+    Width = 78
+    Height = 13
+    Caption = #1057#1087#1077#1094#1080#1072#1083#1100#1085#1086#1089#1090#1100
+  end
+  object DOBLabel: TLabel
+    Left = 944
+    Top = 123
+    Width = 80
+    Height = 13
+    Caption = #1044#1072#1090#1072' '#1088#1086#1078#1076#1077#1085#1080#1103
+  end
+  object MinRateLabel: TLabel
+    Left = 928
+    Top = 211
+    Width = 106
+    Height = 13
+    Caption = #1052#1080#1085#1080#1084#1072#1083#1100#1085#1072#1103' '#1089#1090#1072#1074#1082#1072
+  end
+  object ListBox: TListBox
+    Left = 8
+    Top = 8
+    Width = 513
+    Height = 480
+    ItemHeight = 13
+    ScrollWidth = 5
+    TabOrder = 0
+  end
+  object FirmsComboBox: TComboBox
+    Left = 527
+    Top = 38
+    Width = 369
+    Height = 21
+    TabOrder = 1
+    Text = #1042#1099#1073#1077#1088#1080#1090#1077' '#1074#1072#1082#1072#1085#1089#1080#1102
+  end
+  object ShowCandidatesButton: TButton
+    Left = 544
+    Top = 78
+    Width = 193
+    Height = 25
+    Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1074#1089#1077#1093' '#1082#1072#1085#1076#1080#1076#1072#1090#1086#1074
+    TabOrder = 2
+    OnClick = ShowCandidatesButtonClick
+  end
+  object AddNewCandidateButton: TButton
+    Left = 544
+    Top = 109
+    Width = 193
+    Height = 25
+    Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1082#1072#1085#1076#1080#1076#1072#1090#1072
+    TabOrder = 3
+    OnClick = AddNewCandidateButtonClick
+  end
+  object SortByNameButton: TButton
+    Left = 544
+    Top = 140
+    Width = 193
+    Height = 25
+    Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1072#1090#1100' '#1087#1086' '#1080#1084#1077#1085#1080' '#1082#1072#1085#1076#1080#1076#1072#1090#1086#1074
+    TabOrder = 4
+    OnClick = SortByNameButtonClick
+  end
+  object DeleteCandidateButton: TButton
+    Left = 544
+    Top = 324
+    Width = 193
+    Height = 25
+    Caption = #1059#1076#1072#1083#1080#1090#1100' '#1082#1072#1085#1076#1080#1076#1072#1090#1072
+    TabOrder = 5
+  end
+  object SaveCandidatesButton: TButton
+    Left = 544
+    Top = 355
+    Width = 193
+    Height = 25
+    Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+    TabOrder = 6
+  end
+  object LoadCandidatesButton: TButton
+    Left = 544
+    Top = 386
+    Width = 193
+    Height = 25
+    Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100
+    TabOrder = 7
+  end
+  object ExitButton: TButton
+    Left = 544
+    Top = 448
+    Width = 193
+    Height = 25
+    Caption = #1042#1099#1093#1086#1076
+    TabOrder = 8
+  end
+  object CreateNewCandidateListButton: TButton
+    Left = 544
+    Top = 417
+    Width = 193
+    Height = 25
+    Caption = #1057#1086#1079#1076#1072#1090#1100' '#1085#1086#1074#1099#1081' '#1089#1087#1080#1089#1086#1082' '#1082#1072#1085#1076#1080#1076#1072#1090#1086#1074
+    TabOrder = 9
+  end
+  object CandidateChoiceComboBox: TComboBox
+    Left = 544
+    Top = 201
+    Width = 193
+    Height = 21
+    TabOrder = 10
+    Text = #1042#1099#1073#1077#1088#1080#1090#1077' '#1082#1072#1085#1076#1080#1076#1072#1090#1072
+    OnChange = CandidateChoiceComboBoxChange
+  end
+  object PickFirmListButton: TButton
+    Left = 544
+    Top = 228
+    Width = 193
+    Height = 25
+    Caption = #1057#1087#1080#1089#1086#1082' '#1087#1086#1076#1093#1086#1076#1103#1097#1080#1093' '#1074#1072#1082#1072#1085#1089#1080#1081
+    TabOrder = 11
+    OnClick = PickFirmListButtonClick
+  end
+  object ScarceVacButton: TButton
+    Left = 544
+    Top = 259
+    Width = 193
+    Height = 25
+    Caption = #1057#1087#1080#1089#1086#1082' '#1076#1077#1092#1080#1094#1080#1090#1085#1099#1093' '#1074#1072#1082#1072#1085#1089#1080#1081
+    TabOrder = 12
+    OnClick = ScarceVacButtonClick
+  end
+  object ScarceFirmsButton: TButton
+    Left = 544
+    Top = 290
+    Width = 193
+    Height = 25
+    Caption = #1060#1080#1088#1084#1099' '#1073#1077#1079' '#1087#1086#1076#1093#1086#1076#1103#1097#1080#1093' '#1082#1072#1085#1076#1080#1076#1072#1090#1086#1074
+    TabOrder = 13
+  end
+  object FNEdit: TEdit
+    Left = 775
+    Top = 142
+    Width = 121
+    Height = 21
+    TabOrder = 14
+  end
+  object SpecEdit: TEdit
+    Left = 775
+    Top = 230
+    Width = 121
+    Height = 21
+    TabOrder = 15
+  end
+  object PositionComboBox: TComboBox
+    Left = 751
+    Top = 292
+    Width = 145
+    Height = 21
+    Color = clAqua
+    TabOrder = 16
+    Text = #1042#1099#1073#1077#1088#1080#1090#1077' '#1076#1086#1083#1078#1085#1086#1089#1090#1100
+  end
+  object DOBEdit: TEdit
+    Left = 928
+    Top = 142
+    Width = 121
+    Height = 21
+    TabOrder = 17
+  end
+  object MinRateEdit: TEdit
+    Left = 928
+    Top = 230
+    Width = 121
+    Height = 21
+    TabOrder = 18
+  end
+  object HighEdCheckBox: TCheckBox
+    Left = 928
+    Top = 294
+    Width = 135
+    Height = 17
+    Caption = #1042#1099#1089#1096#1077#1077' '#1086#1073#1088#1072#1079#1086#1074#1072#1085#1080#1077
+    TabOrder = 19
+  end
+end

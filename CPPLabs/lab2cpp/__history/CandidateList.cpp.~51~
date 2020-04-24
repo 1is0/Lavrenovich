@@ -1,0 +1,207 @@
+// ---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "CandidateList.h"
+#include "Candidate.h"
+#include "UnitMain.h"
+
+extern int currentIdx;
+
+bool Compare(const AnsiString &s1, const AnsiString &s2) {
+	int len = s1.Length() < s2.Length() ? s1.Length() : s2.Length();
+	for (int i = 1; i <= len; i++)
+		if (s1[i] < s2[i])
+			return false;
+		else if (s1[i] > s2[i])
+			return true;
+	return false;
+}
+
+Position StrToPos(AnsiString str) {
+	if (str == "Head")
+		return Head;
+	if (str == "Manager")
+		return Manager;
+	if (str == "Trader")
+		return Trader;
+	if (str == "Accountant")
+		return Accountant;
+	if (str == "BranchManager")
+		return BranchManager;
+	if (str == "OfficeWorker")
+		return OfficeWorker;
+}
+
+CandidateList::CandidateList() {
+	list = new Candidate[100];
+	capacity = 100;
+	num = 0;
+}
+
+CandidateList::CandidateList(const CandidateList& rhs) {
+	delete[]list;
+	list = new Candidate[rhs.capacity];
+	capacity = rhs.capacity;
+	num = rhs.num;
+
+	for (int i = 0; i < num; i++)
+		list[i] = rhs.list[i];
+}
+
+CandidateList::~CandidateList() {
+	delete[]list;
+	list = nullptr;
+}
+
+Candidate& CandidateList:: operator[](int offset) {
+	if (offset < 0 || offset >= num)
+		return list[0];
+	return list[offset];
+}
+
+void CandidateList::ShowAll(TListBox* LB) {
+	LB->Items->Clear();
+	Form1->CandidateChoiceComboBox->Clear();
+
+	if (!num) {
+		ShowMessage("Список пуст!");
+		currentIdx = -1;
+		return;
+	}
+
+	for (int i = 0; i < num; i++) {
+		AnsiString s;
+		list[i].CandToStr(s);
+		// AnsiString tmp = s.c_str();
+		LB->Items->Add(s);
+		Form1->CandidateChoiceComboBox->Items->Add(s);
+		// tmp = "";
+	}
+
+	if (currentIdx == -1)
+		return;
+	else
+		currentIdx = -1;
+}
+
+void CandidateList::AddNew(Candidate &cand) {
+	if (capacity == num) // resize
+	{
+		capacity *= 2;
+		Candidate* tmp = new Candidate[num];
+		for (int i = 0; i < num; i++)
+			tmp[i] = list[i];
+		delete[]list;
+		list = new Candidate[capacity];
+		for (int i = 0; i < num; i++)
+			list[i] = tmp[i];
+		delete[]tmp;
+	}
+	for (int i = 0; i < num; i++)
+		if (list[i] == cand) {
+			ShowMessage("Такой кандидат уже есть в списке, не добавляем.");
+			return;
+		}
+	list[num++] = cand;
+	ShowAll(Form1->ListBox);
+}
+
+void CandidateList::SortByName(TListBox* LB) {
+	if (num < 2) {
+		ShowMessage("Слишком мало кандидатов для сортировки.");
+		return;
+	}
+	for (int i = 0; i < num - 1; i++)
+		for (int j = i + 1; j < num; j++)
+			if (Compare(list[i].GetFullName(), list[j].GetFullName())) {
+				Candidate tmp = list[i];
+				list[i] = list[j];
+				list[j] = tmp;
+			}
+	ShowAll(LB);
+}
+
+void CandidateList::Delete() {
+	if (currentIdx < 0 || currentIdx > num) {
+		ShowMessage("Incorrect idx.");
+		return;
+	}
+
+	for (int j = currentIdx; j < num; j++)
+		list[j] = list[j + 1];
+	num--;
+
+	ShowAll(Form1->ListBox);
+	ShowMessage("Успешно удалено.");
+}
+
+void CandidateList::Save() {
+	this->ShowAll(Form1->ListBox);
+	if (this->isEmpty()) {
+		ShowMessage("Список пуст!");
+		return;
+	}
+	TSaveDialog* SaveDialog = new TSaveDialog(Form1);
+	SaveDialog->Filter = "(*.txt) | *.TXT";
+
+	if (SaveDialog->Execute())
+		if (FileExists(SaveDialog->FileName))
+			Form1->ListBox->Items->SaveToFile(SaveDialog->FileName);
+	delete SaveDialog;
+	ShowMessage("Успешно сохранено.");
+}
+
+void CandidateList::Clear() {
+	delete[]list;
+	list = new Candidate[100];
+	capacity = 100;
+	num = 0;
+	ShowAll(Form1->ListBox);
+}
+
+void CandidateList::Load() {
+	TOpenDialog* OpenDialog = new TOpenDialog(Form1);
+	OpenDialog->Filter = "(*.txt) | *.TXT";
+
+	if (OpenDialog->Execute())
+		if (FileExists(OpenDialog->FileName))
+			Form1->ListBox->Items->LoadFromFile(OpenDialog->FileName);
+	delete OpenDialog;
+
+	int n = Form1->ListBox->Items->Count;
+	this->Clear();
+	if (n)
+	{
+		enum Position pos;
+		AnsiString fn = "";
+		AnsiString spec = "";
+		MDate date;
+		bool check;
+		uint mr;
+		for (int i = 0; i < n; i++)
+		{
+            fn = "";
+			spec = "";
+
+			ShowMessage(Form1->ListBox->Items->Strings[i+ 1]);
+			AnsiString s = AnsiString(Form1->ListBox->Items->Strings[i]);
+			TStringDynArray arr(SplitString(s, L" "));
+			fn += arr[0] + arr[1] + arr[2];
+			spec += arr[3];
+			pos = StrToPos(arr[4]);
+            date = StrToMDate(arr[5]);
+            check = (arr[6] == "Has") ? true : false;
+			mr = (uint)StrToInt(arr[7]);
+
+			Candidate cand(fn, spec, pos, date, check, mr);
+			this->AddNew(cand);
+			//this->list[i] = tmpList[i];
+		}
+		this->num = n;
+	}
+
+	ShowAll(Form1->ListBox);
+	ShowMessage("Успешно загружено.");
+}
+#pragma package(smart_init)

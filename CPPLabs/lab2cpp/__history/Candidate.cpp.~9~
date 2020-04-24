@@ -1,0 +1,84 @@
+//---------------------------------------------------------------------------
+
+
+#pragma hdrstop
+#include <string>
+#include "Candidate.h"
+Candidate::Candidate()
+{
+	fullName = L"";
+	spec = L"";
+	pos = OfficeWorker;
+	dateOfBirth = MDate();
+	highEd = false;
+	minRate = 0;
+}
+Candidate::Candidate(AnsiString fnm, AnsiString sp, Position p, MDate dob, bool ed, uint mr)
+{
+	fullName = fnm;
+	spec = sp;
+	pos = p;
+	dateOfBirth = dob;
+	highEd = ed;
+	minRate = mr;
+}
+Candidate::Candidate(const Candidate& rhs)
+{
+	this->fullName = rhs.fullName;
+	this->spec = rhs.spec;
+	this->pos = rhs.pos;
+	this->dateOfBirth = rhs.dateOfBirth;
+	this->highEd = rhs.highEd;
+	this->minRate = rhs.minRate;
+}
+Candidate::~Candidate()
+{
+}
+bool Candidate::operator==(const Candidate& rhs)
+{
+	if (fullName != rhs.fullName || spec != rhs.spec ||this->pos != rhs.pos ||
+		this->highEd != rhs.highEd || this->minRate != rhs.minRate)
+		return false;
+	return true;
+}
+Candidate& Candidate::operator=(const Candidate& rhs)
+{
+	this->fullName = rhs.fullName;
+	this->spec = rhs.spec;
+	this->pos = rhs.pos;
+	this->dateOfBirth = rhs.dateOfBirth;
+	this->highEd = rhs.highEd;
+	this->minRate = rhs.minRate;
+
+	return *this;
+}
+void Candidate::CandToStr(std::wstring &s)
+{
+	AnsiString tmp = fullName.SubString(1, fullName.Length());
+	tmp += " ";
+	tmp += spec;
+
+	switch(pos)
+	{
+	case Head: tmp += " Head ";
+		break;
+	case Manager: tmp += " Manager ";
+		break;
+	case Trader: tmp += " Trader ";
+		break;
+	case Accountant: tmp += " Accountant ";
+		break;
+	case BranchManager: tmp += " BranchManager ";
+		break;
+	default: tmp += " OfficeWorker ";
+	}
+	std::wstring str;
+	dateOfBirth.MToStr(str);
+	tmp += str.c_str();
+
+	tmp += (highEd) ? " Has " : " None ";
+	tmp += IntToStr((int)minRate);
+
+	s = tmp.w_str();
+}
+#pragma package(smart_init)
