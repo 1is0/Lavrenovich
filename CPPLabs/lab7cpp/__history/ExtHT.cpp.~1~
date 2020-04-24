@@ -1,0 +1,10 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "ExtHT.h"
+class ExtHT: public HashTable
+{
+
+};
+#pragma package(smart_init)

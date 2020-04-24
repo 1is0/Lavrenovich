@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.203,=D:\Builder proj\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.614,=D:\Builder proj\Project1PCH1.h</Transaction>
+    <Transaction>2020.04.22 11:23:32.763,=D:\Builder proj\Project1PCH1.h</Transaction>
+    <Transaction>2020.04.22 11:23:33.144,=D:\Builder proj\Unit1.cpp</Transaction>
+    <Transaction>2020.04.22 11:23:51.612,D:\Builder proj\lab7cpp\UnitMain.dfm=D:\Builder proj\Unit1.dfm</Transaction>
+    <Transaction>2020.04.22 11:23:51.612,D:\Builder proj\lab7cpp\UnitMain.h=D:\Builder proj\Unit1.h</Transaction>
+    <Transaction>2020.04.22 11:23:51.612,D:\Builder proj\lab7cpp\UnitMain.cpp=D:\Builder proj\Unit1.cpp</Transaction>
+    <Transaction>2020.04.22 11:23:54.137,D:\Builder proj\lab7cpp\Project1PCH1.h=D:\Builder proj\Project1PCH1.h</Transaction>
+    <Transaction>2020.04.22 11:23:59.273,D:\Builder proj\lab7cpp\ProjectLab7PCH1.h=D:\Builder proj\lab7cpp\Project1PCH1.h</Transaction>
+    <Transaction>2020.04.22 11:23:59.279,D:\Builder proj\lab7cpp\ProjectLab7.cbproj=D:\Builder proj\Project1.cbproj</Transaction>
+    <Transaction>2020.04.22 11:24:38.020,=D:\Builder proj\lab7cpp\Unit1.cpp</Transaction>
+    <Transaction>2020.04.22 11:24:47.234,D:\Builder proj\lab7cpp\HashTable.h=D:\Builder proj\lab7cpp\Unit1.h</Transaction>
+    <Transaction>2020.04.22 11:24:47.234,D:\Builder proj\lab7cpp\HashTable.cpp=D:\Builder proj\lab7cpp\Unit1.cpp</Transaction>
+    <Transaction>2020.04.22 12:15:37.730,=D:\Builder proj\lab7cpp\Stack.cpp</Transaction>
+    <Transaction>2020.04.22 19:06:53.535,=D:\Builder proj\lab7cpp\Unit1.cpp</Transaction>
+    <Transaction>2020.04.22 19:08:03.704,D:\Builder proj\lab7cpp\ExtHT.cpp=D:\Builder proj\lab7cpp\Unit1.cpp</Transaction>
+    <Transaction>2020.04.22 19:08:03.704,D:\Builder proj\lab7cpp\ExtHT.h=D:\Builder proj\lab7cpp\Unit1.h</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="ProjectLab7.cpp"/>
+    <File Path="ProjectLab7PCH1.h"/>
+    <File Path="HashTable.cpp"/>
+    <File Path="HashTable.cpp"/>
+    <File Path="HashTable.h"/>
+    <File Path="Stack.cpp"/>
+    <File Path="Stack.cpp"/>
+    <File Path="Stack.h"/>
+    <File Path="UnitMain.cpp"/>
+    <File Path="UnitMain.cpp"/>
+    <File Path="UnitMain.dfm"/>
+    <File Path="UnitMain.h"/>
+    <File Path="ExtHT.cpp"/>
+    <File Path="ExtHT.cpp"/>
+    <File Path="ExtHT.h"/>
+  </ProjectSortOrder>
+</BorlandProject>

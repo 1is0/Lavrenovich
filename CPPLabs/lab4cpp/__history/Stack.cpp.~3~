@@ -1,0 +1,52 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "Stack.h"
+template<class T>
+Stack<T>::Stack()
+{
+	head = nullptr;
+    size = 0;
+}
+template<class T>
+Stack<T>::~Stack()
+{
+	if (head)
+	{
+		Node* current = head;
+		Node* iter = current->next;
+		while (current)
+		{
+			delete current;
+			if(iter)
+			{
+				current = iter;
+				iter = iter->next;
+			}
+			else
+				current = NULL;
+		}
+	}
+}
+template<class T>
+void Stack<T>::push(T data)
+{
+	Node *tmp = new Node(data);
+    tmp->next = head;
+	head = tmp;
+    size++;
+}
+template<class T>
+T Stack<T>::pop()
+{
+	if(!size)
+		throw -1;
+    Node *tmp = head;
+	head = head->next;
+    T res = tmp->data;
+	delete tmp;
+    size--;
+    return res;
+}
+#pragma package(smart_init)

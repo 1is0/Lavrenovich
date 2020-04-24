@@ -1,0 +1,18 @@
+//---------------------------------------------------------------------------
+
+#ifndef ExtHTH
+#define ExtHTH
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include "HashTable.h"
+class ExtHT: private HashTable
+{
+public:
+	void ShowMostRepKeys(TLabel* l)
+	{
+        int max = 0;
+	}
+};
+#endif

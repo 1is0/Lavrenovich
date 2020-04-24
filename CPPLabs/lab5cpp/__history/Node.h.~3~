@@ -1,0 +1,18 @@
+// ---------------------------------------------------------------------------
+
+#ifndef NodeH
+#define NodeH
+
+class Node {
+public:
+	Node(T data = T()) {
+		this->data = data;
+		this->prev = nullptr;
+		this->next = nullptr;
+	}
+	~Node() {}
+	typename DLList<T>::Node *prev, *next;
+
+	T data;
+};
+#endif

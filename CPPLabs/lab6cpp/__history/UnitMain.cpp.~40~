@@ -1,0 +1,113 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "UnitMain.h"
+#include "TreeRB.h"
+#include "Node.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+Tree* rbTree;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+	rbTree = new Tree();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::PreorderButtonClick(TObject *Sender)
+{
+    Memo->Lines->Clear();
+    rbTree->Preorder(Memo, rbTree->GetRoot());
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::PostorderButtonClick(TObject *Sender)
+{
+	Memo->Lines->Clear();
+	rbTree->Postorder(Memo, rbTree->GetRoot());
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::CenteredButtonClick(TObject *Sender)
+{
+    Memo->Lines->Clear();
+	rbTree->Centered(Memo, rbTree->GetRoot());
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::AddButtonClick(TObject *Sender)
+{
+	try
+	{
+		AnsiString data = FIOEdit->Text;
+		if (data.IsEmpty())
+			throw -1;
+		int key = StrToInt(PassNumEdit->Text);
+        rbTree->InsertNode(data, key);
+	}
+	catch(EConvertError &e)
+	{
+		ShowMessage("Ошибка конвертации. Ключ должен быть больше 0.");
+		return;
+	}
+	catch(...)
+	{
+		ShowMessage("Что-то пошло не так. Возможно, дело в имени.");
+		return;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::DelButtonClick(TObject *Sender)
+{
+	try
+	{
+		int key = StrToInt(KeyEdit->Text);
+		rbTree->DeleteNode(rbTree->FindNode(key));
+	}
+	catch(EConvertError &e)
+	{
+		ShowMessage("Ошибка конвертации. Ключ должен быть больше 0.");
+		return;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::ReflectButtonClick(TObject *Sender)
+{
+    try
+	{
+		int key = StrToInt(KeyEdit->Text);
+		Node* tmp = rbTree->FindNode(key);
+		if (tmp)
+			ReflectLabel->Caption = tmp->data;
+		else
+            ShowMessage("Ключ не найден.");
+	}
+	catch(EConvertError &e)
+	{
+		ShowMessage("Ошибка конвертации. Ключ должен быть больше 0.");
+		return;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::ExitButtonClick(TObject *Sender)
+{
+	Form1->DestroyComponents();
+    Application->Terminate();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormDestroy(TObject *Sender)
+{
+	if (rbTree)
+        delete rbTree;
+}
+//---------------------------------------------------------------------------
+

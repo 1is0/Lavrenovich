@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.422,=D:\Builder proj\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.614,=D:\Builder proj\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.832,D:\Builder proj\Project1PCH1.h=D:\Builder proj\lab4cpp\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.715,D:\Builder proj\Project1.cbproj=D:\Builder proj\lab4cpp\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.715,D:\Builder proj\Unit1.h=D:\Builder proj\UnitMain.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.828,D:\Builder proj\lab4cpp\Unit1.h=D:\Builder proj\lab4cpp\Stack.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.803,D:\Builder proj\UnitMain.dfm=D:\Builder proj\lab4cpp\UnitMain.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.803,D:\Builder proj\UnitMain.cpp=D:\Builder proj\lab4cpp\UnitMain.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.963,=D:\Builder proj\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.203,=D:\Builder proj\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.715,D:\Builder proj\Unit1.dfm=D:\Builder proj\UnitMain.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.715,D:\Builder proj\Unit1.cpp=D:\Builder proj\UnitMain.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.803,D:\Builder proj\UnitMain.h=D:\Builder proj\lab4cpp\UnitMain.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.511,=D:\Builder proj\lab4cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.828,D:\Builder proj\lab4cpp\Unit1.cpp=D:\Builder proj\lab4cpp\Stack.cpp</Transaction>
+  </Transactions>
+</BorlandProject>

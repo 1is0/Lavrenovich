@@ -1,0 +1,39 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "Node.h"
+Node::Node( AnsiString data, int key, Node* parent, Node* left, Node* right, Color color)
+{
+	this->data = data;
+	this->key = key;
+	this->parent = parent;
+	this->left = left;
+	this->right = right;
+    this->color = color;
+}
+
+bool Node::operator==(const Node &rhs)
+{
+	if (data == rhs.data && key == rhs.key && parent == rhs.parent &&
+		left == rhs.left && right == rhs.right)
+		return true;
+	return false;
+}
+
+bool Node::operator!=(const Node &rhs)
+{
+	return (*this == rhs) ? false : true;
+}
+
+Node& Node::operator=(const Node &rhs)
+{
+	this->data = rhs.data;
+	this->key = rhs.key;
+	this->parent = rhs.parent;
+	this->left = rhs.left;
+	this->right = rhs.right;
+	this->color = rhs.color;
+    return *this;
+}
+#pragma package(smart_init)

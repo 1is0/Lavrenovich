@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.232,=D:\Builder proj\lab6cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.413,D:\Builder proj\lab6cpp\TreeRB.h=D:\Builder proj\lab6cpp\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.656,D:\Builder proj\Project1.cbproj=D:\Builder proj\lab6cpp\ProjectLab6.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.198,D:\Builder proj\lab6cpp\TreeB.h=D:\Builder proj\lab6cpp\Node.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.649,D:\Builder proj\lab6cpp\Project1PCH1.h=D:\Builder proj\lab6cpp\ProjectLab6PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.783,D:\Builder proj\lab6cpp\Unit1.cpp=D:\Builder proj\lab6cpp\Node.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.413,D:\Builder proj\lab6cpp\TreeRB.cpp=D:\Builder proj\lab6cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.093,D:\Builder proj\Unit1.h=D:\Builder proj\lab6cpp\UnitMain.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.981,=D:\Builder proj\lab6cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.680,=D:\Builder proj\lab6cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.965,D:\Builder proj\lab6cpp\Unit1.cpp=D:\Builder proj\lab6cpp\Node.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.614,=D:\Builder proj\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.830,D:\Builder proj\Project1PCH1.h=D:\Builder proj\lab6cpp\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.093,D:\Builder proj\Unit1.dfm=D:\Builder proj\lab6cpp\UnitMain.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.783,D:\Builder proj\lab6cpp\Unit1.h=D:\Builder proj\lab6cpp\Node.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.965,D:\Builder proj\lab6cpp\Unit1.h=D:\Builder proj\lab6cpp\Node.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.099,=D:\Builder proj\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.198,D:\Builder proj\lab6cpp\TreeB.cpp=D:\Builder proj\lab6cpp\Node.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.714,D:\Builder proj\lab6cpp\TreeB.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.093,D:\Builder proj\Unit1.cpp=D:\Builder proj\lab6cpp\UnitMain.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.203,=D:\Builder proj\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.733,=D:\Builder proj\Unit1.cpp</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="ProjectLab6.cpp"/>
+    <File Path="ProjectLab6PCH1.h"/>
+    <File Path="UnitMain.cpp"/>
+    <File Path="UnitMain.cpp"/>
+    <File Path="UnitMain.dfm"/>
+    <File Path="UnitMain.h"/>
+    <File Path="Node.cpp"/>
+    <File Path="Node.cpp"/>
+    <File Path="Node.h"/>
+    <File Path="TreeRB.cpp"/>
+    <File Path="TreeRB.cpp"/>
+    <File Path="TreeRB.h"/>
+  </ProjectSortOrder>
+</BorlandProject>

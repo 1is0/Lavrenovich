@@ -1,0 +1,456 @@
+// ---------------------------------------------------------------------------
+
+#ifndef TreeBH
+#define TreeBH
+#include <cstdlib>
+#include <vcl.h>
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Grids.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include "Node.h"
+
+//#define NIL &sentinel
+
+//Node sentinel = {_T(""), 0, nullptr, NIL, NIL, black};
+
+class Tree {
+	Node* root;
+
+	// void FixDeleting(Node* p);
+	// void FixInsertion(Node* p);
+	Node* Grandparent(Node*);
+	Node* Uncle(Node*);
+	void RotateRight(Node*);
+	void RotateLeft(Node*);
+	Node* Sibling(Node*);
+	void ReplaceNode(Node*, Node*);
+	void DeleteOneChild(Node*);
+
+
+	void InsertCase1(Node*);
+	void InsertCase2(Node*);
+	void InsertCase3(Node*);
+	void InsertCase4(Node*);
+	void InsertCase5(Node*);
+
+	void DeleteCase1(Node*);
+	void DeleteCase2(Node*);
+	void DeleteCase3(Node*);
+	void DeleteCase4(Node*);
+	void DeleteCase5(Node*);
+	void DeleteCase6(Node*);
+
+    static void DeleteTree(Node*);
+
+public:
+	Tree();
+	~Tree();
+
+	//void ShowTV(TTreeView* TV);
+	bool Empty() {return (!root) ? true : false;}
+
+	void Preorder(TMemo *Memo, Node* p);
+	void Postorder(TMemo *Memo, Node* p);
+	void Centered(TMemo *Memo, Node* p); // по возрастанию ключа
+
+	void Add(AnsiString data, int key);
+	void Delete(int key);
+    void Find(int key, TEdit* Edit);
+    Node* GetRoot(){return root;}
+};
+
+// ****************************METHODS*****************************************
+Tree::Tree() {
+	root = nullptr;
+}
+
+void Tree::DeleteTree(Node* n)
+{
+	if (!n)
+		return;
+	if (n->right)
+		DeleteTree(n->right);
+	if (n->left)
+		DeleteTree(n->left);
+    free(n);
+}
+
+Tree::~Tree() {
+    DeleteTree(root);
+}
+
+Node* Tree::Grandparent(Node *n) {
+	if (n && n->parent)
+		return n->parent->parent;
+	else
+		return nullptr;
+}
+
+Node* Tree::Uncle(Node *n) {
+	Node *g = Grandparent(n);
+	if (!g)
+		return nullptr; // No grandparent means no uncle
+	if (n->parent == g->left)
+		return g->right;
+	else
+		return g->left;
+}
+
+void Tree::RotateRight(Node *n) {
+	Node *pivot = n->left;
+
+	pivot->parent = n->parent;
+	/* при этом, возможно, pivot становится корнем дерева */
+	if (n->parent) {
+		if (n->parent->left == n)
+			n->parent->left = pivot;
+		else
+			n->parent->right = pivot;
+	}
+
+	n->left = pivot->right;
+	if (pivot->right)
+		pivot->right->parent = n;
+
+	n->parent = pivot;
+	pivot->right = n;
+}
+
+void Tree::RotateLeft(Node *n) {
+	Node *pivot = n->right;
+
+	pivot->parent = n->parent;
+	/* при этом, возможно, pivot становится корнем дерева */
+	if (n->parent) {
+		if (n->parent->left == n)
+			n->parent->left = pivot;
+		else
+			n->parent->right = pivot;
+	}
+
+	n->right = pivot->left;
+	if (pivot->left)
+		pivot->left->parent = n;
+
+	n->parent = pivot;
+	pivot->left = n;
+}
+
+Node* Tree::Sibling(Node* n) {
+	if (n == root)
+		return nullptr;
+
+	if (n == n->parent->left)
+		return n->parent->right;
+	else
+		return n->parent->left;
+}
+
+void Tree::ReplaceNode(Node* n, Node* child) {
+	child->parent = n->parent;
+	if (n == n->parent->left)
+		n->parent->left = child;
+	else
+		n->parent->right = child;
+}
+
+void Tree::DeleteOneChild(Node* n)
+{
+	/*
+	 * Условие: n имеет не более одного ненулевого потомка.
+	 */
+	Node *child = Node::IsLeaf(n->right) ? n->left : n->right;
+
+	this->ReplaceNode(n, child);
+	if (n->color == black) {
+		if (child->color == red)
+			child->color = black;
+		else
+			this->DeleteCase1(child);
+	}
+	free(n);
+}
+
+// adding new element
+void Tree::Add(AnsiString data, int key) {
+	Node *p = root;
+	while (p) {
+		if (key < p->key) {
+			if (p->left) {
+				p = p->left;
+				continue;
+			}
+		}
+		else if (key > p->key) {
+			if (p->right) {
+				p = p->right;
+				continue;
+			}
+		}
+		else {
+			ShowMessage("Объект с таким ключом уже есть в дереве.");
+			return;
+		}
+		break;
+	}
+
+	Node* n = (Node*)std::malloc(sizeof(Node));
+	*n = Node(data, key);
+	if (!root)
+		root = n;
+	else
+		while (p) {
+			p = root;
+			if (n->key < p->key) {
+				if (p->left) {
+					p = p->left;
+					continue;
+				}
+			}
+			else {
+				if (p->right) {
+					p = p->right;
+					continue;
+				}
+			}
+
+			if (n->key < p->key)
+				p->left = n;
+			else
+				p->right = n;
+			n->parent = p;
+			break;
+		}
+	this->InsertCase1(n);
+}
+// insert cases
+void Tree::InsertCase1(Node* n) {
+	if (!n->parent)
+		n->color = black;
+	else
+		this->InsertCase2(n);
+}
+
+void Tree::InsertCase2(Node* n) {
+	if (n->parent->color == black)
+		return; // Tree is still valid
+	else
+		this->InsertCase3(n);
+}
+
+void Tree::InsertCase3(Node* n) {
+	Node *u = this->Uncle(n), *g;
+
+	if ((u != NULL) && (u->color == red)) {
+		// && (n->parent->color == RED) Второе условие проверяется в insert_case2, то есть родитель уже является красным.
+		n->parent->color = black;
+		u->color = black;
+		g = Grandparent(n);
+		g->color = red;
+		this->InsertCase1(g);
+	}
+	else
+		this->InsertCase4(n);
+}
+
+void Tree::InsertCase4(Node* n) {
+	Node *g = this->Grandparent(n);
+	if ((n == n->parent->right) && (n->parent == g->left)) {
+		this->RotateLeft(n->parent);
+		n = n->left;
+	}
+	else if ((n == n->parent->left) && (n->parent == g->right)) {
+		this->RotateRight(n->parent);
+		n = n->right;
+	}
+	this->InsertCase5(n);
+}
+
+void Tree::InsertCase5(Node* n) {
+	Node *g = this->Grandparent(n);
+
+	n->parent->color = black;
+	g->color = red;
+	if ((n == n->parent->left) && (n->parent == g->left))
+		this->RotateRight(g);
+	else /* (n == n->parent->right) && (n->parent == g->right) */
+			this->RotateLeft(g);
+}
+
+// deleting element by a key
+void Tree::Delete(int key)
+{
+	Node *p = root;
+	while (p) {
+		if (key < p->key)
+		{
+			p = p->left;
+			continue;
+		}
+		else if (key > p->key)
+		{
+			p = p->right;
+			continue;
+		}
+		else
+			break;
+	}
+	if (p)
+	{
+		/*Node* c = p;
+        //maximal in left subtree || minimal in right subtree
+		if (c->left)//left maximal
+		{
+			c = c->left;
+			while (c->right)
+                c = c->right;
+		}
+		else//right minimal
+		{
+			c = c->right;
+			while (c->left)
+                c = c->left;
+		}*/
+		this->DeleteOneChild(p);
+	}
+	else
+        ShowMessage("Элемента с таким ключом здесь нет.");
+}
+//delete cases
+void Tree::DeleteCase1(Node *n)
+{
+	if (n->parent != nullptr)
+		this->DeleteCase2(n);
+}
+void Tree::DeleteCase2(Node *n)
+{
+	Node *s = this->Sibling(n);
+
+	if (s->color == red) {
+		n->parent->color = red;
+		s->color = black;
+		if (n == n->parent->left)
+			this->RotateLeft(n->parent);
+		else
+			this->RotateRight(n->parent);
+	}
+	this->DeleteCase3(n);
+}
+void Tree::DeleteCase3(Node *n)
+{
+	Node *s = this->Sibling(n);
+
+	if ((n->parent->color == black) && (s->color == black) &&
+		(s->left->color == black) && (s->right->color == black))
+	{
+		s->color = red;
+		this->DeleteCase1(n->parent);
+	} else
+		this->DeleteCase4(n);
+}
+void Tree::DeleteCase4(Node *n)
+{
+    Node *s = this->Sibling(n);
+
+	if ((n->parent->color == red) && (s->color == black) &&
+		(s->left->color == black) && (s->right->color == black))
+	{
+		s->color = red;
+		n->parent->color = black;
+	}
+	else
+		this->DeleteCase5(n);
+}
+void Tree::DeleteCase5(Node *n)
+{
+    Node *s = this->Sibling(n);
+
+	if  (s->color == black)
+	{
+		if ((n == n->parent->left) && (s->right->color == black) &&
+			(s->left->color == red))
+		{
+			s->color = red;
+			s->left->color = black;
+			this->RotateRight(s);
+		}
+		else if ((n == n->parent->right) && (s->left->color == black) &&
+				 (s->right->color == red))
+		{
+			s->color = red;
+			s->right->color = black;
+			this->RotateLeft(s);
+		}
+	}
+	this->DeleteCase6(n);
+}
+void Tree::DeleteCase6(Node *n)
+{
+	Node *s = this->Sibling(n);
+
+	s->color = n->parent->color;
+	n->parent->color = black;
+
+	if (n == n->parent->left)
+	{
+		s->right->color = black;
+		this->RotateLeft(n->parent);
+	}
+	else
+	{
+		s->left->color = black;
+		this->RotateRight(n->parent);
+	}
+}
+
+// traverses
+void Tree::Preorder(TMemo* Memo, Node* p) {
+	if (!p)
+		return;
+	Memo->Lines->Add(p->data + " : " + IntToStr(p->key));
+	Preorder(Memo, p->left);
+	Preorder(Memo, p->right);
+}
+
+void Tree::Postorder(TMemo* Memo, Node* p) {
+	if (!p)
+		return;
+	Postorder(Memo, p->left);
+	Postorder(Memo, p->right);
+	Memo->Lines->Add(p->data + " : " + IntToStr(p->key));
+}
+
+void Tree::Centered(TMemo* Memo, Node* p) {
+	if (!p)
+		return;
+	Centered(Memo, p->left);
+	Memo->Lines->Add(p->data + " : " + IntToStr(p->key));
+	Centered(Memo, p->right);
+}
+
+void Tree::Find(int key, TEdit* Edit)
+{
+	Node *p = root;
+	while (p) {
+		if (key < p->key)
+		{
+			p = p->left;
+			continue;
+		}
+		else if (key > p->key)
+		{
+			p = p->right;
+			continue;
+		}
+		else
+			break;
+	}
+	if (p)
+		Edit->Text = p->data;
+	else
+        ShowMessage("Элемента с таким ключом нет.");
+}
+#endif

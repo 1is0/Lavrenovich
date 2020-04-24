@@ -1,0 +1,10 @@
+//---------------------------------------------------------------------------
+
+#ifndef NodeH
+#define NodeH
+class Node
+{
+	Node* next;
+	std::string
+}
+#endif

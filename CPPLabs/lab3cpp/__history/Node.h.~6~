@@ -1,0 +1,14 @@
+//---------------------------------------------------------------------------
+
+#ifndef NodeH
+#define NodeH
+#include <string>
+#include <cstring>
+class Node
+{
+	Node* next;
+	std::string name;
+	int amount, cost;
+	TDate
+}
+#endif

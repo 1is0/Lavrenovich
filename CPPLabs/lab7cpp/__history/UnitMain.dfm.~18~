@@ -1,0 +1,125 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 381
+  ClientWidth = 411
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 49
+    Top = 2
+    Width = 145
+    Height = 25
+    Caption = #1061#1101#1096'-'#1090#1072#1073#1083#1080#1094#1072
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clFuchsia
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 294
+    Top = 159
+    Width = 6
+    Height = 25
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clLime
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object MRKeyLabel: TLabel
+    Left = 279
+    Top = 271
+    Width = 19
+    Height = 16
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clNavy
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Memo: TMemo
+    Left = 8
+    Top = 39
+    Width = 265
+    Height = 337
+    Lines.Strings = (
+      'Memo')
+    ReadOnly = True
+    ScrollBars = ssBoth
+    TabOrder = 0
+    WordWrap = False
+  end
+  object ADFEdit: TEdit
+    Left = 279
+    Top = 70
+    Width = 121
+    Height = 21
+    TabOrder = 1
+  end
+  object AddButton: TButton
+    Left = 279
+    Top = 39
+    Width = 121
+    Height = 25
+    Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+    TabOrder = 2
+    OnClick = AddButtonClick
+  end
+  object DelButton: TButton
+    Left = 279
+    Top = 97
+    Width = 121
+    Height = 25
+    Caption = #1059#1076#1072#1083#1080#1090#1100
+    TabOrder = 3
+    OnClick = DelButtonClick
+  end
+  object FindButton: TButton
+    Left = 279
+    Top = 128
+    Width = 121
+    Height = 25
+    Caption = #1053#1072#1081#1090#1080
+    TabOrder = 4
+  end
+  object PrintButton: TButton
+    Left = 279
+    Top = 190
+    Width = 121
+    Height = 25
+    Caption = #1058#1077#1082#1091#1097#1077#1077' '#1089#1086#1089#1090#1086#1103#1085#1080#1077
+    TabOrder = 5
+  end
+  object MostRepeatedButton: TButton
+    Left = 279
+    Top = 221
+    Width = 121
+    Height = 44
+    Caption = #1053#1072#1080#1073#1086#1083#1077#1077' '#1095#1072#1089#1090#1099#1077' '#1082#1083#1102#1095#1080
+    TabOrder = 6
+    WordWrap = True
+  end
+  object ExitButton: TButton
+    Left = 279
+    Top = 325
+    Width = 121
+    Height = 41
+    Caption = #1042#1099#1093#1086#1076
+    TabOrder = 7
+    OnClick = ExitButtonClick
+  end
+end

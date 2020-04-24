@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.161,=D:\Builder proj\lab5cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.766,D:\Builder proj\lab5cpp\Unit1.cpp=D:\Builder proj\lab5cpp\Ring.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.410,D:\Builder proj\lab5cpp\Unit1.cpp=D:\Builder proj\lab5cpp\Node.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.516,D:\Builder proj\lab5cpp\DoublyLinkedList.cpp=D:\Builder proj\lab5cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.812,D:\Builder proj\Project1.cbproj=D:\Builder proj\lab5cpp\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.305,D:\Builder proj\lab5cpp\Queue.cpp=D:\Builder proj\lab5cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.158,D:\Builder proj\Unit1.h=D:\Builder proj\lab5cpp\UnitMain.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.746,=D:\Builder proj\lab5cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.869,=D:\Builder proj\lab5cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.174,=D:\Builder proj\lab5cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.958,=D:\Builder proj\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.158,D:\Builder proj\Unit1.cpp=D:\Builder proj\lab5cpp\UnitMain.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.203,=D:\Builder proj\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.107,=D:\Builder proj\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.305,D:\Builder proj\lab5cpp\Queue.h=D:\Builder proj\lab5cpp\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.158,D:\Builder proj\Unit1.dfm=D:\Builder proj\lab5cpp\UnitMain.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.614,=D:\Builder proj\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.095,D:\Builder proj\Project1PCH1.h=D:\Builder proj\lab5cpp\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.516,D:\Builder proj\lab5cpp\DoublyLinkedList.h=D:\Builder proj\lab5cpp\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.410,D:\Builder proj\lab5cpp\Unit1.h=D:\Builder proj\lab5cpp\Node.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.766,D:\Builder proj\lab5cpp\Unit1.h=D:\Builder proj\lab5cpp\Ring.h</Transaction>
+  </Transactions>
+</BorlandProject>

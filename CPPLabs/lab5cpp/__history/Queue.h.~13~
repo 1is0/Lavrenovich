@@ -1,0 +1,20 @@
+//---------------------------------------------------------------------------
+
+#ifndef QueueH
+#define QueueH
+#include "DoublyLinkedList.h"
+
+template<class T>
+class Queue: private DLList<T>
+{
+public:
+	Queue(): DLList<T>(){}
+	~Queue(){}
+
+	int Size(){return this->Size();}
+	void Push(T data){ this->PushFront(data);}
+	T Pop(){return this->PopBack();}
+    T Top(){return this->BackInfo();}
+};
+
+#endif

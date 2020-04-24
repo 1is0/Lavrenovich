@@ -1,0 +1,20 @@
+//---------------------------------------------------------------------------
+
+#ifndef DataH
+#define DataH
+#include "UnitMain.h"
+#include <cstring>
+#include <cstdlib>
+#include <string>
+class Data
+{
+	std::string name;
+	int amount, cost;
+	TDate comingDate;
+public:
+	Data();
+	Data(const std::string name, int amount, int cost, const TDate& comingDate);
+	Data(const Daat& rhs);
+	~Data();
+};
+#endif

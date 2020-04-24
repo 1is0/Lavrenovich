@@ -1,0 +1,11 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "DoublyLinkedList.h"
+template<class T>
+class DLList
+{
+
+};
+#pragma package(smart_init)

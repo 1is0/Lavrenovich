@@ -1,0 +1,14 @@
+//---------------------------------------------------------------------------
+
+#ifndef ExtHTH
+#define ExtHTH
+#include "HashTable.h"
+class ExtHT: public HashTable
+{
+public:
+	void ShowMostRepKeys(TLabel* l)
+	{
+
+	}
+};
+#endif

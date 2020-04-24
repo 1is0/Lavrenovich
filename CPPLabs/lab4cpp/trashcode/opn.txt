@@ -1,0 +1,55 @@
+for (int i = 1; i <= formula.Length(); i++) {
+		if (isoper(formula[i])) // если это символ оператора
+		{
+			switch (operStack->headInfo())
+				// инфа о верхнем элементе стека операторов
+			{
+			case '+':
+			case '-':
+				if (formula[i] == '*' || formula[i] == '/' || formula[i] == '(')
+					operStack->push(formula[i]);
+				else if (formula[i] == ')')
+				{
+					polska[len++] = operStack->pop();
+					operStack->pop();
+				}
+				else
+				{
+					polska[len++] = operStack->pop();
+					operStack->push(formula[i]);
+				}
+				break;
+			case '*':
+			case '/':
+				if (formula[i] == '(')
+					operStack->push(formula[i]);
+				else if (formula[i] == ')')
+				{
+					polska[len++] = operStack->pop();
+					operStack->pop();
+				}
+				else
+				{
+					polska[len++] = operStack->pop();
+					operStack->push(formula[i]);
+				}
+				break;
+
+			case '(':
+				if (formula[i] == ')') {
+					operStack->pop();
+					break;
+				}
+				else
+					operStack->push(formula[i]);
+				break;
+			default:
+				operStack->push(formula[i]);
+			}
+		}
+		else
+			if (i == formula.Length())
+                polska[len++] = operStack->pop();
+			else
+				polska[len++] = formula[i];
+	}

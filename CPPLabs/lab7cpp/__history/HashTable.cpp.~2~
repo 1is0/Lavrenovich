@@ -1,0 +1,11 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "HashTable.h"
+HashTable::HashTable()
+{
+	for (int i=0; i < size; i++)
+		table[i] = Stack<AnsiString>();
+}
+#pragma package(smart_init)

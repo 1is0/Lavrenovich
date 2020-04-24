@@ -1,0 +1,58 @@
+//---------------------------------------------------------------------------
+
+#ifndef NodeH
+#define NodeH
+#include <vcl.h>
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Grids.hpp>
+#include <Vcl.ComCtrls.hpp>
+enum Color{red, black};
+
+struct Node
+{
+	AnsiString data;
+    int key;
+	Node *parent, *left, *right;
+	Color color;
+	Node(){data = _T(""); parent = nullptr; left = nullptr; right = nullptr;}
+	Node(AnsiString, int, Node*, Node*, Node*, Color);
+	~Node(){}
+
+	Node& operator=(const Node &rhs);
+	bool operator==(const Node &rhs);
+    bool operator!=(const Node &rhs);
+};
+
+bool Node::operator==(const Node &rhs)
+{
+	if (data == rhs.data && key == rhs.key && parent == rhs.parent &&
+		left == rhs.left && right == rhs.right && color == rhs.color)
+		return true;
+    return false;
+}
+
+Node::Node( AnsiString data, int key, Node* parent = nullptr,
+			Node* left = nullptr, Node* right = nullptr, Color color = red)
+{
+	this->data = data;
+	this->key = key;
+	this->parent = parent;
+	this->left = left;
+	this->right = right;
+    this->color = color;
+}
+
+Node& Node::operator=(const Node &rhs)
+{
+	this->data = rhs.data;
+	this->key = rhs.key;
+	this->parent = rhs.parent;
+	this->left = rhs.left;
+	this->right = rhs.right;
+	this->color = rhs.color;
+    return *this;
+}
+#endif

@@ -1,0 +1,113 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "TreeB.h"
+void Tree::Add(AnsiString data, int key)
+{
+	Node *t = new Node(data, key);
+	if (this->Empty())
+		root = t;
+	else
+	{
+		Node *p = root;
+		Node *q = nullptr;
+		while (p)
+		{
+			q = p;
+			if (p->key < t->key)
+				p = p->right;
+			else
+				p = p->left;
+		}
+		t->parent = q;
+		//adding red colored element
+		if (q->key < t->key)
+			q->right = t;
+		else
+            q->left = t;
+	}
+	this->FixInsertion(t);//do recoloring if needed
+}
+
+void Tree::Delete(int key)
+{
+	Node *p = root;
+
+	while (p->key != key)//finding node by key
+		if (p->key < key)
+			p = p->right;
+		else
+			p = p->left;
+
+	if (p->left == nullptr && p->right == nullptr)//no children
+	{
+		if (p == root)
+		{
+			delete root;
+			root = nullptr;
+		}
+		else
+		{
+			p->parent = nullptr;
+			delete p;
+		}
+		return;
+	}
+
+	Node *y = nullptr;
+	Node *q = nullptr;
+	if ((p->left && !p->right) || (!p->left && p->right))//one child
+	{
+		//ссылку на у от "отца" меняем на ребенка y
+		if (p == root)
+		{
+			root = (p->right) ? p->right : p->left;
+			delete p;
+            root->parent = nullptr;
+		}
+		else
+		{
+			if (p->right)//right child
+			{
+				Node *tmp = p->right;
+				Node *par = p->parent;
+				delete p;
+                par->right = tmp;
+			}
+			else//left child
+			{
+				Node *tmp = p->left;
+				Node *par = p->parent;
+				delete p;
+                par->left = tmp;
+			}
+		}
+	}
+	else//both children
+	{
+		y = p->right;//searching for element with the very next key value
+		while (y->left)
+			y = y->left;
+		//p->data = y->data;
+		//p->key = y->key;
+		//y->parent->left = nullptr;
+	    //delete y;
+
+		if (y->right)
+			y->right->parent = y->parent;
+		if (y == root)
+			root = y->right;
+		else
+			у родителя ссылку на y меняем на ссылку на первого ребенка y
+	}
+	if (y != p)
+	{
+		p->color = y->color;
+		p->key = y->key;
+	}
+	if (y->color == black)
+		// при удалении черной вершины могла быть нарушена балансировка
+		this->FixDeleting(q);
+}
+#pragma package(smart_init)

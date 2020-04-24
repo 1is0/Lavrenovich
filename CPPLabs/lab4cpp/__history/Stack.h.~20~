@@ -1,0 +1,40 @@
+//---------------------------------------------------------------------------
+
+#ifndef StackH
+#define StackH
+#include "UnitMain.h"
+template<class T>
+class Stack
+{
+	struct Node
+	{
+		Node* next;
+		T data;
+		Node(T data = T(), Node* next = nullptr) {this->data = data; this->next = next;}
+		~Node(){}
+	};
+	Node *head;
+    int size;
+public:
+	Stack();
+	~Stack();
+	void push(T data);
+	T pop();
+	bool isEmpty(){return (!size) ? true : false;}
+    const T& headInfo(){return head->data;}
+};
+
+//******************************METHODS***************************************
+template<class T>
+Stack<T>::Stack();
+
+template<class T>
+Stack<T>::~Stack();
+
+template<class T>
+void Stack<T>::push(T data);
+
+template<class T>
+T Stack<T>::pop();
+
+#endif

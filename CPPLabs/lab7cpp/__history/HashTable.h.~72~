@@ -1,0 +1,45 @@
+//---------------------------------------------------------------------------
+
+#ifndef HashTableH
+#define HashTableH
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include "Stack.h"
+#include <cmath>
+class HashTable
+{
+	const int size = 10;
+	Stack<AnsiString> table[10];
+
+	static int hkey(AnsiString);
+public:
+	HashTable();
+	~HashTable(){}
+	bool Has(AnsiString);
+	void Add(AnsiString);
+	void Delete(AnsiString);
+	void Print(TMemo* Memo);
+};
+
+
+{
+	Memo->Lines->Clear();
+	Stack<AnsiString> tmp;
+	AnsiString s;
+	for (int i = 0; i < size; i++)
+	{
+		Memo->Lines->Add(IntToStr(i) + " : ");
+
+		while(!table[i].isEmpty())
+		{
+            s = table[i].pop();
+			tmp.push(s);
+			Memo->Lines->Strings[i] += s + "; ";
+		}
+		while(!tmp.isEmpty())
+            table[i].push(tmp.pop());
+	}
+}
+#endif
