@@ -1,0 +1,6 @@
+D:\VS2020\lab3CS\lab3CS\bin\Debug\lab3CS.exe.config
+D:\VS2020\lab3CS\lab3CS\bin\Debug\lab3CS.exe
+D:\VS2020\lab3CS\lab3CS\bin\Debug\lab3CS.pdb
+D:\VS2020\lab3CS\lab3CS\obj\Debug\lab3CS.csprojAssemblyReference.cache
+D:\VS2020\lab3CS\lab3CS\obj\Debug\lab3CS.exe
+D:\VS2020\lab3CS\lab3CS\obj\Debug\lab3CS.pdb
