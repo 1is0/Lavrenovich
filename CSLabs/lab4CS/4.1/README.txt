@@ -1,1 +1,1 @@
-Это приложение WinForms.
+This application uses WinForms.
