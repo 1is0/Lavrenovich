@@ -1,0 +1,1 @@
+Executable will be named lab6c.exe
