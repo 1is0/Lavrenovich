@@ -1,0 +1,12 @@
+Stick Up
+180
+0.69
+Piranha Panik
+215
+0.73
+G-Rex
+400
+0.95
+Mayhem
+180
+1.15
