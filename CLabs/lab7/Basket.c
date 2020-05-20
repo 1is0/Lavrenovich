@@ -163,6 +163,7 @@ void pay(struct Basket* basket)
 	{
 		puts("You can't afford that!");
 		printf("Full price: %6.2f$\nYour balance: %6.2f$\n", fullprice, basket->balance);
+		int c = getch();
 		return;
 	}
 	/*else*/
@@ -210,9 +211,20 @@ void add_balance(struct Basket* basket)
 		puts("No basket initialized!");
 		return;
 	}
-	puts("Would you like to add some money to your balance?(Press [y] key if yes)");
-	int c = getch();
-	if ((char)c == 'y' || (char)c == 'Y' || (char)c == 'í' || (char)c == 'Í')
+	puts("Would you like to add some money to your balance?(Yes/No): ");
+	char choice[256] = { 0 };
+	rewind(stdin);
+	gets(choice);
+	trim(choice);
+	while (strcmp(to_lower_case(choice), "yes") && strcmp(to_lower_case(choice), "no"))
+	{
+		puts("Bad input.\nWould you like to add some money to your balance?(Yes/No): ");
+		gets(choice);
+		trim(choice);
+	}
+	strcpy(choice, to_lower_case(choice));/*"yes", "no"*/
+
+	if (!strcmp(choice, "yes"))
 	{
 		printf("How much money would you like to add?($): ");
 		float money = 0;
@@ -227,7 +239,7 @@ void add_balance(struct Basket* basket)
 		puts("Adding...");
 		basket->balance += money;
 		printf("Added %6.2f$ to your balance.\nCurrent balance: %6.2f$\n", money, basket->balance);
-		c = getch();
+		int c = getch();
 	}
 	else
 	{

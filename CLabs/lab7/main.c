@@ -52,7 +52,7 @@ void clear_string(char* s)
 		s[0] = '\0';
 }
 
-const char* to_lower_case(char* s)//работает заебись
+const char* to_lower_case(char* s)
 {
 	static char tmp[256];
 	clear_string(tmp);
@@ -341,7 +341,7 @@ void find_and_add()/*finding and adding step by step*/
 			int c = getch();
 			if ((char)c == 'y' || (char)c == 'Y' || (char)c == 'н' || (char)c == 'Н')
 			{
-				printf("Input the musical direction: ");
+				printf("Input the musician: ");
 				gets(mname);
 				trim(mname);
 				currMusician = find_mus_name(currMD->musicians, mname);
@@ -455,7 +455,8 @@ void make_payment()
 	clear_screen();
 	show_basket_info(Basket);
 	puts("Would you like to make a payment?(Press [y] key if yes)\n");
-	int c = getch();
+	rewind(stdin);
+	char c = getch();
 	if ((char)c == 'y' || (char)c == 'Y' || (char)c == 'н' || (char)c == 'Н')
 		pay(Basket);
 	else
@@ -540,11 +541,12 @@ void menu()
 			break;
 		case '7': 
 			clear_basket();
+			c = getch();
 			break;
 		case '8': 
 			clear_screen();
 			puts("Designed by: Lavrenovich A. E., 953502\nVersion: 1.0_raw");
-			int a = getch();
+			c = getch();
 			break;
 		case '9':
 			clear_screen();

@@ -1,4 +1,4 @@
 REPORT
-Saled songs: 0
-General profit:   0.00$
-Discs remain: 961573
+Saled songs: 1000
+General profit: 3980.00$
+Discs remain: 960573
