@@ -1,6 +1,14 @@
-lab6c.exe:	main.o
-	gcc -o lab6c.exe main.o
+all: build run clean
 
-main.o:	main.c
-	gcc -O0 -g3 -Wall -c main.c
-	gcc -masm=intel -g3 -Wall -c main.c -S
+lab6c.o: main.c
+	gcc -c -o lab6c.o main.c
+
+build: lab6c.o
+	gcc -o lab6c lab6c.o
+	
+run:
+	lab6c.exe
+
+clean:
+	del *.o lab6c
+	del lab6c.exe lab6c

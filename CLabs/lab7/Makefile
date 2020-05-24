@@ -1,7 +1,6 @@
 CC = gcc
 
-lab7c.exe: main.o MusDir.o Musician.o Album.o Song.o Basket.o
-	$(CC) -o lab7c.exe main.o MusDir.o Musician.o Album.o Song.o Basket.o
+all: build run clean
 	
 main.o: main.c
 	$(CC) -O0 -g3 -Wall -c main.c
@@ -20,3 +19,14 @@ Song.o: Song.h Song.c
 	
 Basket.o: Basket.h Basket.c
 	$(CC) -O0 -g3 -Wall -c Basket.h Basket.c
+	
+build: main.o MusDir.o Musician.o Album.o Song.o Basket.o
+	$(CC) -o lab7c main.o MusDir.o Musician.o Album.o Song.o Basket.o
+	
+run: 
+	lab7c.exe
+	
+clean:
+	del *.o lab7c
+	del lab7c.exe lab7c
+	del *.gch lab7c

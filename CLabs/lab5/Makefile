@@ -1,6 +1,14 @@
-lab5c.exe:	main.o
-	gcc -o lab5c.exe main.o
+all: build run clean
 
-main.o:	main.c
-	gcc -O0 -g3 -Wall -c main.c
-	gcc -masm=intel -g3 -Wall -c main.c -S
+lab5c.o: main.c
+	gcc -c -o lab5c.o main.c
+
+build: lab5c.o
+	gcc -o lab5c lab5c.o
+	
+run:
+	lab5c.exe
+
+clean:
+	del *.o lab5c
+	del lab5c.exe lab5c
