@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.516,D:\Builder proj\lab3cpp\Unit1.cpp=D:\Builder proj\lab3cpp\Data.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.913,=D:\Builder proj\lab3cpp\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.341,D:\Builder proj\lab3cpp\ForwList.h=D:\Builder proj\lab3cpp\Unit1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.596,D:\Builder proj\lab3cpp\Node.h=D:\Builder proj\lab3cpp\Unit1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.002,D:\Builder proj\lab3cpp\UnitMain.cpp=C:\Users\Alice\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.479,=C:\Users\Alice\Documents\RAD Studio\Projects\Project1.res</Transaction>
     <Transaction>1899.12.30 00:00:00.000.570,=D:\Builder proj\lab3cpp\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.040,=D:\Builder proj\lab3cpp\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.488,=C:\Users\Alice\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.479,=C:\Users\Alice\Documents\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.596,D:\Builder proj\lab3cpp\Node.h=D:\Builder proj\lab3cpp\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.002,D:\Builder proj\lab3cpp\UnitMain.cpp=C:\Users\Alice\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.341,D:\Builder proj\lab3cpp\ForwList.h=D:\Builder proj\lab3cpp\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.913,=D:\Builder proj\lab3cpp\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.516,D:\Builder proj\lab3cpp\Unit1.cpp=D:\Builder proj\lab3cpp\Data.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.516,D:\Builder proj\lab3cpp\Unit1.h=D:\Builder proj\lab3cpp\Data.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.488,=C:\Users\Alice\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.002,D:\Builder proj\lab3cpp\UnitMain.dfm=C:\Users\Alice\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.322,D:\Builder proj\lab3cpp\lab3.cbproj=C:\Users\Alice\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.341,D:\Builder proj\lab3cpp\ForwList.cpp=D:\Builder proj\lab3cpp\Unit1.cpp</Transaction>
